@@ -14,5 +14,12 @@
     "email": "briangorman99@gmail.com",
     "url": "https://github.com/GormanBrian"
   },
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
