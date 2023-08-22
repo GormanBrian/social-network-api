@@ -1,0 +1,18 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "API for a social network.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:watch": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Brian Gorman",
+    "email": "briangorman99@gmail.com",
+    "url": "https://github.com/GormanBrian"
+  },
+  "license": "BSD-3-Clause"
+}
