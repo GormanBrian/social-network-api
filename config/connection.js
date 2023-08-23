@@ -1,7 +1,10 @@
-import { connect, connection } from "mongoose";
+import mongoose from "mongoose";
+import { config } from "dotenv";
 
-connect(
+config();
+
+mongoose.connect(
   `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
 );
 
-export default connection;
+export default mongoose.connection;
