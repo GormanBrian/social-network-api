@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import reactionSchema from "./Reaction.js";
+import reactionSchema from "./reactionSchema.js";
 import { formatDate } from "../utils/date.js";
 
 const thoughtSchema = new Schema(
@@ -9,14 +9,14 @@ const thoughtSchema = new Schema(
       required: true,
       maxlength: 280,
     },
+    username: {
+      type: String,
+      required: true,
+    },
     createdAt: {
       type: Date,
       default: Date.now,
       get: formatDate,
-    },
-    username: {
-      type: String,
-      required: true,
     },
     reactions: [reactionSchema],
   },
