@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import reactionSchema from "./Reaction.js";
 
 const thoughtSchema = new Schema({
   thoughtText: {
@@ -10,7 +11,7 @@ const thoughtSchema = new Schema({
     required: true,
   },
   createdAt: Date,
-  reactions: [],
+  reactions: [reactionSchema],
   reactionCount: 0,
 });
 

@@ -1,5 +1,5 @@
 import express, { urlencoded, json } from "express";
-import db from "./config/connection";
+import db from "./config/connection.js";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
