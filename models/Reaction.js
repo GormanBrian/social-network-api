@@ -2,6 +2,10 @@ import { Schema } from "mongoose";
 
 const reactionSchema = new Schema(
   {
+    reactionId: {
+      type: Schema.Types.ObjectId,
+      default: () => new Schema.Types.ObjectId(),
+    },
     reactionBody: {
       type: String,
       required: true,

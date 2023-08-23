@@ -1,19 +1,29 @@
 import { Schema, model } from "mongoose";
 import reactionSchema from "./Reaction.js";
 
-const thoughtSchema = new Schema({
-  thoughtText: {
-    type: String,
-    required: true,
+const thoughtSchema = new Schema(
+  {
+    thoughtText: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    reactions: [reactionSchema],
   },
-  username: {
-    type: String,
-    required: true,
-  },
-  createdAt: Date,
-  reactions: [reactionSchema],
-  reactionCount: 0,
-});
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    },
+  }
+);
 
 const Thought = model("thought", thoughtSchema);
 
