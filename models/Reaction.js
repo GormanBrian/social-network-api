@@ -1,4 +1,5 @@
 import { Schema } from "mongoose";
+import { formatDate } from "../utils/date.js";
 
 const reactionSchema = new Schema(
   {
@@ -18,6 +19,7 @@ const reactionSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now,
+      get: formatDate,
     },
   },
   {
