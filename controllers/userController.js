@@ -28,7 +28,7 @@ export const createUser = async (req, res) => {
   }
 };
 
-export const updateUser = async (req, res) => {
+export const updateUserById = async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -37,6 +37,19 @@ export const updateUser = async (req, res) => {
     );
     if (!user) res.status(404).json({ message: "No user exists with that ID" });
     else res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
+export const deleteUserById = async (req, res) => {
+  try {
+    const user = await User.findOneAndDelete({ _id: req.params.userId });
+    if (!user) res.status(404).json({ message: "No user exists with that ID" });
+    else {
+      User.updateMany({ friends: user._id }, { $pull: { friends: user._id } });
+      res.json(user);
+    }
   } catch (err) {
     res.status(500).json(err);
   }
