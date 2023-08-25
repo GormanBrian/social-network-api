@@ -1,5 +1,12 @@
 import { User } from "../models/index.js";
 
+/**
+ * Find all users.
+ *
+ * ### Response
+ * - 200 - [{@linkcode User}] - Users found
+ * - 500 - {@linkcode Error} - Server error
+ */
 export const getUsers = async (_, res) => {
   try {
     const users = await User.find();
@@ -9,6 +16,14 @@ export const getUsers = async (_, res) => {
   }
 };
 
+/**
+ * Find a single user by id.
+ *
+ * ### Response
+ * - 200 - {@linkcode User} - User found
+ * - 404 - {@linkcode Object} - No user exists with provided id
+ * - 500 - {@linkcode Error} - Server error
+ */
 export const getUserById = async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.userId }).select("-__v");
@@ -19,6 +34,13 @@ export const getUserById = async (req, res) => {
   }
 };
 
+/**
+ * Create a single user.
+ *
+ * ### Response
+ * - 200 - {@linkcode User} - User created
+ * - 500 - {@linkcode Error} - Server error
+ */
 export const createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
@@ -28,6 +50,14 @@ export const createUser = async (req, res) => {
   }
 };
 
+/**
+ * Update a single user by id.
+ *
+ * ### Response
+ * - 200 - {@linkcode User} - User updated
+ * - 404 - {@linkcode Object} - No user exists with provided id
+ * - 500 - {@linkcode Error} - Server error
+ */
 export const updateUserById = async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(
@@ -42,11 +72,20 @@ export const updateUserById = async (req, res) => {
   }
 };
 
+/**
+ * Delete a single user by id.
+ *
+ * ### Response
+ * - 200 - {@linkcode User} - User deleted
+ * - 404 - {@linkcode Object} - No user exists with provided id
+ * - 500 - {@linkcode Error} - Server error
+ */
 export const deleteUserById = async (req, res) => {
   try {
     const user = await User.findOneAndDelete({ _id: req.params.userId });
     if (!user) res.status(404).json({ message: "No user exists with that ID" });
     else {
+      /** @TODO - delete user's thoughts */
       User.updateMany({ friends: user._id }, { $pull: { friends: user._id } });
       res.json(user);
     }
