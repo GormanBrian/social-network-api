@@ -93,3 +93,42 @@ export const deleteUserById = async (req, res) => {
     res.status(500).json(err);
   }
 };
+
+export const addNewFriend = async (req, res) => {
+  try {
+    const user = User.findOneAndUpdate(
+      { _id: req.params.userId },
+      {
+        $push: {
+          friends: req.params.friendId,
+        },
+      },
+      { new: true }
+    ).populate({ path: "friends", select: "-__v" });
+
+    if (!user) {
+      return res.status(404).json({ message: "No user with this id!" });
+    }
+
+    res.json(user);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+};
+
+export const deleteFriend = async (req, res) => {
+  const user = User.findOneAndUpdate(
+    { _id: req.params.userId },
+    { $pull: { friends: req.params.friendId } },
+    { new: true }
+  )
+    .populate({ path: "friends", select: "-__v" })
+    .select("-__v");
+
+  if (!user) {
+    return res.status(404).json({ message: "No user with this id!" });
+  }
+
+  res.json(user);
+};
