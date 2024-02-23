@@ -7,7 +7,8 @@ const thoughtSchema = new Schema(
     thoughtText: {
       type: String,
       required: true,
-      maxlength: 280,
+      maxlength: [280, "Thought text cannot exceed 280 characters"],
+      minlength: [1, "Thought text must be at least 1 character"],
     },
     username: {
       type: String,

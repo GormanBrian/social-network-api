@@ -7,7 +7,7 @@ import { User } from "../models/index.js";
  * - 200 - [{@linkcode User}] - Users found
  * - 500 - {@linkcode Error} - Server error
  */
-export const getUsers = async (_, res) => {
+export const getAllUsers = async (_, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -41,7 +41,7 @@ export const getUserById = async (req, res) => {
  * - 200 - {@linkcode User} - User created
  * - 500 - {@linkcode Error} - Server error
  */
-export const createUser = async (req, res) => {
+export const addUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
     res.json(user);
@@ -58,7 +58,7 @@ export const createUser = async (req, res) => {
  * - 404 - {@linkcode Object} - No user exists with provided id
  * - 500 - {@linkcode Error} - Server error
  */
-export const updateUserById = async (req, res) => {
+export const updateUser = async (req, res) => {
   try {
     const user = await User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -80,7 +80,7 @@ export const updateUserById = async (req, res) => {
  * - 404 - {@linkcode Object} - No user exists with provided id
  * - 500 - {@linkcode Error} - Server error
  */
-export const deleteUserById = async (req, res) => {
+export const deleteUser = async (req, res) => {
   try {
     const user = await User.findOneAndDelete({ _id: req.params.userId });
     if (!user) res.status(404).json({ message: "No user exists with that ID" });
@@ -94,7 +94,7 @@ export const deleteUserById = async (req, res) => {
   }
 };
 
-export const addNewFriend = async (req, res) => {
+export const addFriend = async (req, res) => {
   try {
     const user = User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -104,7 +104,9 @@ export const addNewFriend = async (req, res) => {
         },
       },
       { new: true }
-    ).populate({ path: "friends", select: "-__v" });
+    )
+      .populate({ path: "friends", select: "-__v" })
+      .select("-__v");
 
     if (!user) {
       return res.status(404).json({ message: "No user with this id!" });
@@ -120,7 +122,13 @@ export const addNewFriend = async (req, res) => {
 export const deleteFriend = async (req, res) => {
   const user = User.findOneAndUpdate(
     { _id: req.params.userId },
-    { $pull: { friends: req.params.friendId } },
+    {
+      $pull: {
+        friends: {
+          _id: req.params.friendId,
+        },
+      },
+    },
     { new: true }
   )
     .populate({ path: "friends", select: "-__v" })

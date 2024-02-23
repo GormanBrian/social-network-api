@@ -1,4 +1,4 @@
-import { User, Thought } from "../models";
+import { User, Thought } from "../models/index.js";
 
 export async function getAllThoughts(_, res) {
   try {
@@ -10,7 +10,8 @@ export async function getAllThoughts(_, res) {
     res.status(500).json(err);
   }
 }
-export async function createNewThought(req, res) {
+
+export async function addThought(req, res) {
   try {
     const thought = await Thought.create(req.body)
       .populate({ path: "reactions", select: "-__v" })
@@ -31,6 +32,7 @@ export async function createNewThought(req, res) {
     res.status(500).json(err);
   }
 }
+
 export async function getThoughtById(req, res) {
   try {
     const thought = await Thought.findOne({ _id: req.params.thoughtId })
@@ -49,6 +51,7 @@ export async function getThoughtById(req, res) {
     res.status(500).json(err);
   }
 }
+
 export async function updateThought(req, res) {
   try {
     const thought = await Thought.findOneAndUpdate(
@@ -71,6 +74,7 @@ export async function updateThought(req, res) {
     res.status(500).json(err);
   }
 }
+
 export async function deleteThought(req, res) {
   try {
     const thought = await Thought.findOneAndDelete({
@@ -93,7 +97,8 @@ export async function deleteThought(req, res) {
     res.status(500).json(err);
   }
 }
-export async function createNewReaction(req, res) {
+
+export async function addReaction(req, res) {
   try {
     const thought = await Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
@@ -112,6 +117,7 @@ export async function createNewReaction(req, res) {
     res.status(500).json(err);
   }
 }
+
 export async function deleteReaction(req, res) {
   try {
     const thought = await Thought.findOneAndUpdate(
