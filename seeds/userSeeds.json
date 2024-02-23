@@ -1,0 +1,52 @@
+[
+  {
+    "username": "Marie Curie",
+    "email": "marie.curie@sciencelovers.com",
+    "password": "R@d10Act1v3"
+  },
+  {
+    "username": "Leonardo da Vinci",
+    "email": "leo.da.vinci@creativeminds.net",
+    "password": "Genius@Work!"
+  },
+  {
+    "username": "Nikola Tesla",
+    "email": "nikola.tesla@electricdreams.org",
+    "password": "ACDC&Wireless"
+  },
+  {
+    "username": "Jane Goodall",
+    "email": "jane.goodall@wildlifeexplorers.org",
+    "password": "Ch1mpanzeeLove"
+  },
+  {
+    "username": "Isaac Newton",
+    "email": "isaac.newton@appletheories.io",
+    "password": "GravityF@lls!"
+  },
+  {
+    "username": "Hedy Lamarr",
+    "email": "hedy.lamarr@inventivegenius.com",
+    "password": "FrequencyH0pp3r!"
+  },
+  {
+    "username": "Richard Feynman",
+    "email": "richard.feynman@quantumphysics.org",
+    "password": "L3ctureN0t3s#"
+  },
+  {
+    "username": "Marissa Mayer",
+    "email": "marissa.mayer@techinnovator.biz",
+    "password": "Y@h00CE0"
+  },
+  {
+    "username": "Steve Wozniak",
+    "email": "steve.wozniak@applecofounder.io",
+    "password": "W0zRul3s!"
+  },
+  {
+    "username": "Sheryl Sandberg",
+    "email": "sheryl.sandberg@leaninmovement.net",
+    "password": "FBCh13f0p"
+  }
+]
