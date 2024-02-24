@@ -1,5 +1,5 @@
-import * as models from "../models";
-import db from "../config/connection";
+import * as models from "../models/index.js";
+import db from "../config/connection.js";
 
 const clean = async (modelName, collectionName) => {
   try {

@@ -1,42 +1,42 @@
 [
   {
     "thoughtText": "Nothing in life is to be feared; it is only to be understood.",
-    "thoughtAuthor": "Marie Curie"
+    "username": "Marie Curie"
   },
   {
     "thoughtText": "Learning never exhausts the mind.",
-    "thoughtAuthor": "Leonardo da Vinci"
+    "username": "Leonardo da Vinci"
   },
   {
     "thoughtText": "Be alone, that is the secret of invention; be alone, that is when ideas are born.",
-    "thoughtAuthor": "Nikola Tesla"
+    "username": "Nikola Tesla"
   },
   {
     "thoughtText": "What you do makes a difference, and you have to decide what kind of difference you want to make.",
-    "thoughtAuthor": "Jane Goodall"
+    "username": "Jane Goodall"
   },
   {
     "thoughtText": "Tact is the knack of making a point without making an enemy.",
-    "thoughtAuthor": "Isaac Newton"
+    "username": "Isaac Newton"
   },
   {
     "thoughtText": "I can excuse everything but boredom. Boring people don't have to stay that way.",
-    "thoughtAuthor": "Hedy Lamarr"
+    "username": "Hedy Lamarr"
   },
   {
     "thoughtText": "The first principle is that you must not fool yourself — and you are the easiest person to fool.",
-    "thoughtAuthor": "Richard Feynman"
+    "username": "Richard Feynman"
   },
   {
     "thoughtText": "You can't have everything you want, but you can have the things that really matter to you.",
-    "thoughtAuthor": "Marissa Mayer"
+    "username": "Marissa Mayer"
   },
   {
     "thoughtText": "Never trust a computer you can't throw out a window.",
-    "thoughtAuthor": "Steve Wozniak"
+    "username": "Steve Wozniak"
   },
   {
     "thoughtText": "The upside of painful knowledge is so much greater than the downside of blissful ignorance.",
-    "thoughtAuthor": "Sheryl Sandberg"
+    "username": "Sheryl Sandberg"
   }
 ]
