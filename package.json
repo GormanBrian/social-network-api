@@ -1,17 +1,21 @@
 {
   "name": "social-network-api",
   "version": "1.0.0",
-  "description": "API for a social network.",
+  "description": "API for a microblogging social network.",
   "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
     "seed": "node seeds/seed.js",
-    "clean": "node seeds/cleanDB.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "node seeds/cleanDB.js"
   },
-  "keywords": [],
+  "keywords": [
+    "API",
+    "Social Network",
+    "Microblog",
+    "Mongoose"
+  ],
   "author": {
     "name": "Brian Gorman",
     "email": "briangorman99@gmail.com",
